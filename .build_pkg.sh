@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
-pacman -Sy
+pacman -Syu
 sed -i '/\$E_USER_ABORT/d' /usr/bin/makepkg
 
-cd /mnt
+cd /build
 makepkg -s --noconfirm

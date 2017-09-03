@@ -5,7 +5,7 @@ services:
   - docker
 
 script:
-  - docker run -i -v $(pwd):/mnt base/devel /bin/bash < .build_pkg.sh
+  - docker run -iv $(pwd):/build base/devel /bin/bash < .build_pkg.sh
 
 deploy:
   provider: releases
@@ -15,5 +15,4 @@ deploy:
   file: ./*.pkg.tar*
   skip_cleanup: true
   on:
-    repo: Tharre/st-pkg
     tags: true
