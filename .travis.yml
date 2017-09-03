@@ -6,3 +6,14 @@ services:
 
 script:
   - docker run -i -v $(pwd):/mnt base/devel /bin/bash < .build_pkg.sh
+
+deploy:
+  provider: releases
+  api_key:
+    secure: CKgewNGHRQpOdL0i72sZydDGTJlNcQuOCRRvPpNMabDXD+l4Jv69dkNvzVE1YDXlYF3OwqzwupLa52wzy2TMmA6+cmBTgd3ilVMyyM3lPfVE1q3txg2Bkxh15KjUTf2mDy1UsnahQkmv1NhSbPnARbLHMKa0O4maVc/LC/olVsDm+yY64ZOu9EY9Hz1U40ZfFvAF57QwtDjFIu45Vf202/GmfxhgBzDz1WgIIntNqzLP2kFAPpz/hQG9CnH3tBdEsh3Fk0la0XOyea3XykHXocn3QMOECHaVhwuqgwLfk3Ck+XEAnv9sQYJyS7MJax17hGhYVHMoO3JJ/f3pDagcyAJamEkcM2o5BHG4tR5kZDNkokc14t4btkHo57R5YiZ1kDkAkRnhOz/aQwKoFc7jk44NjsYFyI/cnYX8T7q4vNt5fnDab0XDmr8EHQb3XaiIeGK3/EOKJHOC3KrLAoSV843AoXTrwRGNd4uJJ1iesXAmggFyx3L4ePFASxNLDCuKZCQ3PArRp182V0Lj+dNzLA9gLFwYhif6zHEEirK4f3grza6eQlYadHHxFB63n2VIqRHHizc6Oj61SXpK+m/mJkezVG0csgRorEWElryydgq2Vx01B14cuHU8hnD6GcU3gimqjPztpUvbRpfbFJoABEa+tMmKxhR/yT7dR8Fonp4=
+  file_glob: true
+  file: *.pkg.tar*
+  skip_cleanup: true
+  on:
+    repo: Tharre/st-pkg
+    tags: true
