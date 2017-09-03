@@ -1,9 +1,8 @@
 language: bash
+sudo: required
 
-before_install:
-  - git clone git://github.com/fsquillace/junest ~/junest
-  - PATH=~/junest/bin:$PATH
-  - junest -u -- pacman -Syu --noconfirm base $(pacman -Sgq base-devel | sed 's/sudo//')
+services:
+  - docker
 
 script:
-  - junest -- makepkg -s
+  - docker run -i -v $(pwd):/mnt base/devel /bin/bash < .build_pkg.sh
