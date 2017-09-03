@@ -5,7 +5,7 @@ services:
   - docker
 
 script:
-  - docker run -iv $(pwd):/build base/devel /bin/bash < .build_pkg.sh
+  - travis_wait docker run -iv $(pwd):/build base/devel /bin/bash < .build_pkg.sh
 
 deploy:
   provider: releases
