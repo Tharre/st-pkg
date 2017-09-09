@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 useradd -m -s /bin/bash builder
-chown builder:builder /build
+chmod 777 /build
 echo "builder ALL=(ALL) NOPASSWD: /usr/bin/pacman" >> /etc/sudoers
 echo 'Server = http://mirror.th73.ovh/$repo/os/$arch' > /etc/pacman.d/mirrorlist
 
