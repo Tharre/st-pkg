@@ -6,6 +6,7 @@ services:
 
 script:
   - docker run -iv $(pwd):/build base/devel /bin/bash < .build_pkg.sh
+  - ls -lha
 
 deploy:
   provider: releases
