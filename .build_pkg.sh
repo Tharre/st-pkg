@@ -3,6 +3,7 @@
 echo "Server = http://mirror.th73.ovh/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 useradd -m -s /bin/bash builder
 echo "builder ALL=(ALL) NOPASSWD: /usr/bin/pacman" >> /etc/sudoers
+chown builder:builder /build
 
 pacman -Syu
 
