@@ -7,8 +7,8 @@ chown builder:builder /build
 
 pacman -Syu
 
-mkdir -p ~/.gnupg
-cat << EOF > ~/.gnupg/gpg.conf
+mkdir -p /home/builder/.gnupg
+cat << EOF > /home/builder/.gnupg/gpg.conf
 keyserver-options auto-key-retrieve
 keyserver hkp://ipv4.pool.sks-keyservers.net
 EOF
